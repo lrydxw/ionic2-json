@@ -1,0 +1,139 @@
+
+<ion-header>
+
+  <ion-navbar color="light" >
+    <ion-title text-center>{{ quoteGroup.category | uppercase }}</ion-title>
+  </ion-navbar>
+<ion-searchbar (ionInput)="getItems($event)" placeholder="搜索" style="font-size:12px;"></ion-searchbar>
+<div>
+  <ion-segment [(ngModel)]="pet" >
+    <ion-segment-button value="kittens" style="font-size:16px;">
+      所有
+    </ion-segment-button>
+    <ion-segment-button value="puppies" style="font-size:16px;">
+      已举证
+    </ion-segment-button>
+    <ion-segment-button value="puppes" style="font-size:16px;">
+      未举证
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+</ion-header>
+
+
+<ion-content >
+	<!--<ion-item>
+    <ion-label color="primary" fixed>Fixed Label</ion-label>
+    <ion-input type="tel" placeholder="Tel Input"></ion-input>
+  </ion-item>-->
+	
+<ion-list>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item *ngFor="let quote of quoteGroup.quotes; let i = index">
+	
+  	 
+  	 
+  	 
+  	  <ion-row>
+    <ion-col col-2 (click)="addXin()">
+      <button ion-button icon-left clear >
+        <ion-icon name="pin"></ion-icon>
+  
+      </button>
+    </ion-col>
+    <ion-col center col-6 (click)="addXin()">
+    
+        <h2>
+     			序号：{{ items.number}}
+      </h2>
+      <p>
+      	   图幅号：{{ items.text }}
+      </p>
+    
+    </ion-col>
+    <ion-col col-1>
+    <button
+          ion-button
+          clear
+          small
+          (click)="onAddToFavorites(quote)"
+          *ngIf="!isFavorite(quote)"><ion-icon name="md-checkmark" large></ion-icon></button>
+        <button
+          ion-button
+          clear
+          small
+          color="danger"
+          (click)="onRemoveFromFavorites(quote)"
+          *ngIf="isFavorite(quote)"><ion-icon name="md-checkmark" ></ion-icon></button>
+    </ion-col>
+    <ion-col col-3>
+    	
+      <button ion-button icon-left clear (click)="onViewQuote(quote)">
+      	<div>详情&nbsp;|&nbsp;</div>
+        <ion-icon name="md-list-box"></ion-icon>
+        
+      </button>
+      
+    </ion-col>
+    
+  </ion-row>
+ </ion-item>
+    ...
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+  
+  </ion-list>
+  
+</div>
+
+  
+
+</ion-list>
+
+
+
+
+
+
+
+<!-- <ion-list *ngFor="let quote of quoteGroup.quotes; let i = index">
+    <ion-item>
+    	 <ion-icon name="pin" item-left color="secondary"></ion-icon>
+    	<h2>
+     序号：{{ quote.person }}
+      </h2>
+      
+     <p>图幅号：{{ quote.text }}</p>
+      <ion-icon name="md-list-box" item-right color="secondary"></ion-icon>
+     <ion-row>
+      <ion-col text-right>
+        <button
+          ion-button
+          clear
+          small
+          (click)="onAddToFavorites(quote)"
+          *ngIf="!isFavorite(quote)">Favorite</button>
+        <button
+          ion-button
+          clear
+          small
+          color="danger"
+          (click)="onRemoveFromFavorites(quote)"
+          *ngIf="isFavorite(quote)">Unfavorite</button>
+      </ion-col>
+    </ion-row>
+    </ion-item>
+   
+    
+  </ion-list>-->
+</ion-content>

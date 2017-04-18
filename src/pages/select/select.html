@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <!-- 顶部菜单 -->
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+     <!-- 顶部菜单 -->
+    <ion-title>list</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<h3>动态添加select</h3>
+   <<ion-item><ion-input type="text" #number (blur)="createSelect(number.value)"></ion-input></ion-item>
+   <div *ngIf="number.value!=''" >
+      <select #selectOption *ngFor="let item of numbers  , let i=index" (change)="selectValue(selectOption.value,i)">
+          <option>请选择部门</option>
+          <option *ngFor="let option of item.list" >{{option}}</option>
+      </select>
+   </div>
+   <my-component>loading......</my-component>
+</ion-content>

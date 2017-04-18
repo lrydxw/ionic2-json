@@ -1,0 +1,273 @@
+<ion-header>
+  <!--<ion-navbar no-border-bottom>
+    <ion-title>
+      Segments
+    </ion-title>
+  </ion-navbar>-->
+</ion-header>
+
+<ion-content padding>
+ <!-- <button (click)="goToBack()">点击我返回首页</button>
+  
+<ion-searchbar (ionInput)="getItems($event)" placeholder="搜索" style="font-size:12px;"></ion-searchbar>-->
+ <ion-list   >
+    <ion-item-sliding *ngFor="let item of items"  >
+      显示内容
+   <ion-item class="xin">
+        <ion-row>
+        <ion-col col-6 text-center >I D  : </ion-col>
+        <ion-col col-6> {{ item.id }}</ion-col>
+    </ion-row>
+   </ion-item>
+    <ion-item>
+     <ion-row>
+        <ion-col col-6 text-center>序号  : </ion-col>
+        <ion-col col-6> {{ item.number }}</ion-col>
+   </ion-row>
+    </ion-item>
+    <ion-item class="xin">
+      <ion-row>
+        <ion-col col-6 text-center>图斑标识码：</ion-col>
+        <ion-col col-6> {{ item.biaoshi }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item>
+       
+    <ion-row>
+        <ion-col col-6 text-center>行政区代码：</ion-col>
+        <ion-col col-6> {{ item.daima }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item class="xin">
+        
+      <ion-row>
+        <ion-col col-6 text-center>图幅号：</ion-col>
+        <ion-col col-6> {{ item.tufu }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-6 text-center>权属单位名称：</ion-col>
+        <ion-col col-6> {{ item.quanshu }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item class="xin">
+       <ion-row>
+        <ion-col col-6 text-center>坐落单位名称：</ion-col>
+        <ion-col col-6> {{ item.zuoluo }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-6 text-center> 变更前地类编码：</ion-col>
+        <ion-col col-6> {{ item.bianqian }}</ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item class="xin">
+      <ion-row>
+        <ion-col col-6 text-center> 坐落单位名称：</ion-col>
+        <ion-col col-6> {{ item.zuoluo }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-6 text-center> 变更前地类编码：</ion-col>
+        <ion-col col-6> {{ item.bianqian }}</ion-col>
+    </ion-row>       
+    </ion-item>
+        <ion-item class="xin">
+      <ion-row>
+        <ion-col col-6 text-center> 地类编码：</ion-col>
+        <ion-col col-6> {{ item.dilei }}</ion-col>
+    </ion-row>       
+    </ion-item>
+    <ion-item>
+        
+      <ion-row>
+        <ion-col col-6 text-center> 图斑面积：</ion-col>
+        <ion-col col-6> {{ item.tumian }}</ion-col>
+    </ion-row>       
+    </ion-item>
+    <ion-item class="xin">
+      <ion-row>
+        <ion-col col-6 text-center> 情况说明：</ion-col>
+        <ion-col col-6> {{ item.qingkuang }}</ion-col>
+    </ion-row>        
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-6 text-center>  文件号：</ion-col>
+        <ion-col col-6> {{ item.wenhao }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item class="xin">
+      
+      <ion-row>
+        <ion-col col-6 text-center>  备注：</ion-col>
+        <ion-col col-6>  {{ item.beizhu }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item>
+      
+      <ion-row>
+        <ion-col col-6 text-center>   图斑分布：</ion-col>
+        <ion-col col-6> {{ item.tubu }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item class="xin">
+       
+      <ion-row>
+        <ion-col col-6 text-center>  是否与影响一致：</ion-col>
+        <ion-col col-6>{{ item.yizhi }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item>
+      
+      <ion-row>
+        <ion-col col-6 text-center>  不一致比例：</ion-col>
+        <ion-col col-6>  {{ item.bili }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item class="xin">
+      
+      <ion-row>
+        <ion-col col-6 text-center>   是否申请在先外业：</ion-col>
+        <ion-col col-6> {{ item.waiye }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item>
+      
+      <ion-row>
+        <ion-col col-6 text-center>   长度：</ion-col>
+        <ion-col col-6> {{ item.length }}</ion-col>
+    </ion-row>      
+    </ion-item>
+    <ion-item class="xin">
+      
+      <ion-row>
+        <ion-col col-6 text-center>  面积： </ion-col>
+        <ion-col col-6> {{ item.area }}</ion-col>
+    </ion-row>      
+    </ion-item>
+   <ion-item>
+      
+    </ion-item>
+ 
+      
+        
+      <ion-input type="text" #username [value]="item.title"></ion-input>
+      <ion-item-options>
+        编辑按钮
+        <button primary>Edit</button>
+        删除按钮
+        <button danger (click)="removeItem(username.value)">Delete
+        </button>
+      </ion-item-options>
+      <ion-item-options side="left">
+        <button ion-button color="danger">add</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+<!-- <div>
+  <ion-segment [(ngModel)]="pet" >
+    <ion-segment-button value="kittens" style="font-size:16px;">
+      所有
+    </ion-segment-button>
+    <ion-segment-button value="puppies" style="font-size:16px;">
+      已举证
+    </ion-segment-button>
+    <ion-segment-button value="puppes" style="font-size:16px;">
+      未举证
+    </ion-segment-button>
+  </ion-segment>
+</div>
+  <ion-list>
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item *ngFor="let quote of quoteGroup.quotes; let i = index">
+  <ion-icon  (click)="addXin()" name="pin" color="primary"></ion-icon>
+      <span ><h2>
+          序号：{{ quote.number}}
+      </h2>
+      <p>
+           图幅号：{{ quote.text }}
+      </p></span>
+  
+    <ion-icon
+     name="md-list-box" 
+     item-right
+     color="primary" 
+     (click)="onViewQuote(quote)"
+     >
+     </ion-icon>
+     
+     
+     
+      <ion-row>
+    <ion-col col-2 (click)="addXin()">
+      <button ion-button icon-left clear >
+        <ion-icon name="pin"></ion-icon>
+  
+      </button>
+    </ion-col>
+    <ion-col center col-6 (click)="addXin()">
+    
+        <h2>
+          序号：{{ quote.number}}
+      </h2>
+      <p>
+           图幅号：{{ quote.text }}
+      </p>
+    
+    </ion-col>
+    <ion-col col-1>
+    <button
+          ion-button
+          clear
+          small
+          (click)="onAddToFavorites(quote)"
+          *ngIf="!isFavorite(quote)"><ion-icon name="md-checkmark" large></ion-icon></button>
+        <button
+          ion-button
+          clear
+          small
+          color="danger"
+          (click)="onRemoveFromFavorites(quote)"
+          *ngIf="isFavorite(quote)"><ion-icon name="md-checkmark" ></ion-icon></button>
+    </ion-col>
+    <ion-col col-3>
+      
+      <button ion-button icon-left clear (click)="onViewQuote(quote)">
+        <div>详情&nbsp;|&nbsp;</div>
+        <ion-icon name="md-list-box"></ion-icon>
+        
+      </button>
+      
+    </ion-col>
+    
+  </ion-row>
+ </ion-item>
+    ...
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-kitten-1.jpg">
+      </ion-thumbnail>
+      <h2>Luna</h2>
+    </ion-item>
+  
+  </ion-list>
+  
+</div>
+
+  
+
+</ion-list> -->
+
+
+
+
+</ion-content>
